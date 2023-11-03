@@ -1,6 +1,7 @@
 pipeline{
  environment {
- registry = "eletrenzado/car-react-starter", "eletrenzado/car-spring-app-starter"
+ registry1 = "eletrenzado/car-react-starter"
+ registry2 = "eletrenzado/car-spring-app-starter"
         registryCredentials = "dockerhub_id"
         dockerImage = ""
     }
@@ -9,7 +10,8 @@ pipeline{
             stage ('Build Docker Image'){
                 steps{
                     script {
-                        dockerImage = docker.build(registry)
+                        dockerImage = docker.build(registry1)
+			dockerImage = docker.build(registry2)
                     }
                 }
             }
